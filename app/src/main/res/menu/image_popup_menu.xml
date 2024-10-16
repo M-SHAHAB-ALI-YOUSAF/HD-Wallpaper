@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/action_delete"
+        android:title="Delete"
+        android:icon="@drawable/baseline_delete_24"/>
+    <item
+        android:id="@+id/action_set_wallpaper"
+        android:title="@string/setaswallpaper"
+        android:icon="@drawable/baseline_add_to_home_screen_24"/>
+</menu>

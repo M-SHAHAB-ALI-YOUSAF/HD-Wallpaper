@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SetWallapaper">
+
+    <!-- Main Wallpaper Image -->
+    <ImageView
+        android:id="@+id/ImageSetToWallpaper"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="200dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Set Wallpaper & Download Buttons -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/OnlineCardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="50dp"
+        app:cardCornerRadius="100dp"
+        app:cardElevation="12dp"
+        app:layout_constraintEnd_toEndOf="@+id/ImageSetToWallpaper"
+        app:layout_constraintStart_toStartOf="@+id/ImageSetToWallpaper"
+        app:layout_constraintTop_toBottomOf="@+id/ImageSetToWallpaper">
+
+        <!-- Set Wallpaper Button -->
+        <ImageView
+            android:id="@+id/SetWallpaper"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="left"
+            android:layout_marginStart="50dp"
+            android:padding="10dp"
+            android:src="@drawable/baseline_wallpaper_24" />
+
+        <!-- Download Wallpaper Button -->
+        <ImageView
+            android:id="@+id/DownloadWallpaper"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="right"
+            android:layout_marginEnd="50dp"
+            android:padding="10dp"
+            android:src="@drawable/baseline_arrow_downward_24" />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/downloadCardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="50dp"
+        android:visibility="gone"
+        app:cardCornerRadius="100dp"
+        app:cardElevation="12dp"
+        app:layout_constraintEnd_toEndOf="@+id/ImageSetToWallpaper"
+        app:layout_constraintStart_toStartOf="@+id/ImageSetToWallpaper"
+        app:layout_constraintTop_toBottomOf="@+id/ImageSetToWallpaper">
+
+        <!-- Set Wallpaper Button -->
+        <ImageView
+            android:id="@+id/SetWallpaperdownload"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:padding="10dp"
+            android:src="@drawable/baseline_wallpaper_24" />
+
+    </androidx.cardview.widget.CardView>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
