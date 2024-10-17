@@ -10,7 +10,8 @@ import androidx.fragment.app.viewModels
 import com.example.hdwallpapers.models.NetworkUtils
 import com.tashila.pleasewait.PleaseWaitDialog
 import androidx.viewpager2.widget.ViewPager2
-import com.example.hdwallpapers.adaptor.VideoPagerAdapter
+import com.example.hdwallpapers.adaptor.MediaItem
+import com.example.hdwallpapers.adaptor.MediaPagerAdapter
 import com.example.hdwallpapers.databinding.FragmentVideosBinding
 import com.example.hdwallpapers.models.VideoViewModel
 
@@ -18,7 +19,7 @@ class VideoFragment : Fragment() {
 
     private var _binding: FragmentVideosBinding? = null
     private val binding get() = _binding!!
-    private lateinit var adapter: VideoPagerAdapter
+    private lateinit var adapter: MediaPagerAdapter
     private val viewModel: VideoViewModel by viewModels()
 
     override fun onCreateView(
@@ -40,8 +41,12 @@ class VideoFragment : Fragment() {
             viewModel.fetchVideos("46503658-ee94f9496a14078767498ae87")
 
             viewModel.videoList.observe(viewLifecycleOwner, Observer { videos ->
-                val groupedVideos = videos.chunked(6)
-                adapter = VideoPagerAdapter(groupedVideos)
+                val groupedVideos = videos.chunked(6).map { videoGroup ->
+                    videoGroup.map { videoResult ->
+                        MediaItem.VideoItem(videoResult) // Wrap each VideoResult in MediaItem.VideoItem
+                    }
+                }
+                adapter = MediaPagerAdapter(groupedVideos)
                 binding.viewPagerVideos.adapter = adapter
                 progressDialog.dismiss()
             })
